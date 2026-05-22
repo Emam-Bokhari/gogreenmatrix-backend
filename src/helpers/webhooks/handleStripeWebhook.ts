@@ -231,14 +231,11 @@ export const handleExtendBookingSuccess = async (session: any) => {
   const extensionAdminCommission = transaction.charges?.adminCommission || 0;
 
   // IMPORTANT: safer than derived amount
-  const extensionBasePrice =
-    transaction.amount - extensionPlatformFee;
+  const extensionBasePrice = transaction.amount - extensionPlatformFee;
 
-  booking.rentalPrice =
-    (booking.rentalPrice || 0) + extensionBasePrice;
+  booking.rentalPrice = (booking.rentalPrice || 0) + extensionBasePrice;
 
-  booking.platformFee =
-    (booking.platformFee || 0) + extensionPlatformFee;
+  booking.platformFee = (booking.platformFee || 0) + extensionPlatformFee;
 
   booking.hostCommission =
     (booking.hostCommission || 0) + extensionHostCommission;
@@ -246,15 +243,13 @@ export const handleExtendBookingSuccess = async (session: any) => {
   booking.adminCommission =
     (booking.adminCommission || 0) + extensionAdminCommission;
 
-  booking.totalAmount =
-    (booking.totalAmount || 0) + transaction.amount;
+  booking.totalAmount = (booking.totalAmount || 0) + transaction.amount;
 
   // ---------------------------
   // ⏱ Extended Hours fix
   // ---------------------------
   booking.extendedHours =
-    (booking.extendedHours || 0) +
-    (transaction.extendedHours || 0);
+    (booking.extendedHours || 0) + (transaction.extendedHours || 0);
 
   // ---------------------------
   // 📜 Extend history log

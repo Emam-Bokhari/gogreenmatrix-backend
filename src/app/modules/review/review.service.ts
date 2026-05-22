@@ -5,8 +5,6 @@ import { Review } from "./review.model";
 import { sendNotifications } from "../../../helpers/notificationsHelper";
 import { NOTIFICATION_TYPE } from "../notification/notification.constant";
 
-
-
 // Create review (dual: host <-> user)
 const createReview = async (payload: IReview, reviewerId: string) => {
   const { reviewForId, ratingValue, feedback, reviewType } = payload;

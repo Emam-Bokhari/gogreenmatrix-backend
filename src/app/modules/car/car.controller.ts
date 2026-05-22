@@ -9,7 +9,7 @@ const createCar = catchAsync(async (req, res) => {
 
   const result = await CarServices.createCarToDB(carData);
 
-  console.log(carData,"CAR DATA");
+  console.log(carData, "CAR DATA");
 
   sendResponse(res, {
     success: true,
@@ -159,8 +159,6 @@ const getSingleCarByHost = catchAsync(async (req, res) => {
     data: result,
   });
 });
-
-
 
 export const CarControllers = {
   createCar,

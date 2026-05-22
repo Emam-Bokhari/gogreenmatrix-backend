@@ -22,7 +22,7 @@ import {
 import { ReviewServices } from "../review/review.service";
 import { REVIEW_TARGET_TYPE } from "../review/review.interface";
 import { Car } from "../car/car.model";
-import { getCarTripCount, getCarTripCountMap } from "../car/car.utils";
+import { getCarTripCountMap } from "../car/car.utils";
 import bcrypt from "bcrypt";
 import { sendNotifications } from "../../../helpers/notificationsHelper";
 import { NOTIFICATION_TYPE } from "../notification/notification.constant";

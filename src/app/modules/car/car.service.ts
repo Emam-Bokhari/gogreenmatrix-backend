@@ -105,10 +105,10 @@ export type ArrayActionValue =
   | string
   | Types.ObjectId
   | {
-    label: string;
-    value: string;
-    icon?: string;
-  };
+      label: string;
+      value: string;
+      icon?: string;
+    };
 
 export interface IArrayAction {
   field: "images" | "availableDays" | "facilities" | "assignedHosts";
@@ -914,7 +914,7 @@ const parseQueryParams = (params: any) => {
 
 //   // Attach hasUserPaid to each car
 //   filteredCars.forEach((car) => {
-//     car.hasUserPaid = paidCarIds.has(car._id.toString()); // 
+//     car.hasUserPaid = paidCarIds.has(car._id.toString()); //
 //   });
 
 //   return {
@@ -933,7 +933,7 @@ const parseQueryParams = (params: any) => {
 // };
 
 function escapeRegex(value: string): string {
-  return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function normalizeSearchInput(value: string): string {
@@ -1204,9 +1204,7 @@ const getNearbyCarsFromDB = async (params: any) => {
   }
 
   // -------------------- TRIPS --------------------
-  const tripCountMap = await getCarTripCountMap(
-    filteredCars.map((c) => c._id),
-  );
+  const tripCountMap = await getCarTripCountMap(filteredCars.map((c) => c._id));
   filteredCars.forEach((car) => {
     (car as any).trips = tripCountMap[car._id.toString()] ?? 0;
   });
@@ -1296,7 +1294,6 @@ const getNearbyCarsFromDB = async (params: any) => {
     },
   };
 };
-
 
 const getCarByIdForUserFromDB = async (id: string, userId: string) => {
   const car = await Car.findById(id).populate("assignedHosts");

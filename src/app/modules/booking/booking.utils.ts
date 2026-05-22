@@ -196,9 +196,7 @@ export const calculateExtendBookingAmount = async (
   const hostCommission = round(baseExtendPrice * hostPercent);
 
   // 👉 consistent admin calculation (safe)
-  const adminCommission = round(
-    baseExtendPrice - platformFee - hostCommission,
-  );
+  const adminCommission = round(baseExtendPrice - platformFee - hostCommission);
 
   // 💵 final amount
   const totalAmount = round(baseExtendPrice + platformFee);

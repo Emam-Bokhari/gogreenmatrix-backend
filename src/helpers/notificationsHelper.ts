@@ -6,10 +6,13 @@ import { NOTIFICATION_TYPE } from "../app/modules/notification/notification.cons
 export const sendNotifications = async (
   data: Partial<INotification>,
 ): Promise<INotification | any> => {
-  if (data.type === NOTIFICATION_TYPE.USER || data.type === NOTIFICATION_TYPE.HOST) {
+  if (
+    data.type === NOTIFICATION_TYPE.USER ||
+    data.type === NOTIFICATION_TYPE.HOST
+  ) {
     // For User and Host, use the Push Notification Helper (which also saves to DB)
     if (!data.receiver) return;
-    
+
     const payload = {
       title: data.title || "Notification",
       body: data.text || "",
@@ -21,7 +24,10 @@ export const sendNotifications = async (
       },
     };
 
-    return await notificationHelper.sendToUser(data.receiver.toString(), payload);
+    return await notificationHelper.sendToUser(
+      data.receiver.toString(),
+      payload,
+    );
   } else {
     // For Admin and others, keep the existing Socket.io logic
     const result = await (

@@ -39,7 +39,7 @@ const toggleFavorite = async (payload: {
 const getFavorite = async (userId: string) => {
   const favorites = await FavoriteCar.find({ userId })
     .populate({
-      path: "referenceId", // Car
+      path: "referenceId", // Car model
     })
     .populate({
       path: "userId",

@@ -362,7 +362,7 @@ const googleLoginService = async (payload: {
   token: string;
   fcmToken?: string;
   deviceId?: string;
-  deviceType?: 'ios' | 'android' | 'web';
+  deviceType?: "ios" | "android" | "web";
 }) => {
   const { token, fcmToken, deviceId, deviceType } = payload;
 

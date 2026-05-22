@@ -29,8 +29,6 @@ export type IUser = {
   };
 };
 
-
-
 export type UserModal = {
   isExistUserById(id: string): any;
   isExistUserByEmail(email: string): any;
