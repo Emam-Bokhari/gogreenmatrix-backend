@@ -218,6 +218,40 @@ Remaiziza-STA-Backend/
 
 ---
 
+## Entity Relationship Diagram (ERD)
+
+The project includes automatically generated Entity Relationship Diagrams (ERDs) mapping the Mongoose schemas and relationships across modules.
+
+#### System-Wide ER Diagram
+Below is the rendered project-wide database structure:
+
+![System-Wide ER Diagram](./docs/erd/modules/whole-er-diagram/er-diagram.png)
+
+#### Module-Specific Diagrams
+For a focused view of each module, check the following directories:
+* **Banner:** [PNG](./docs/erd/modules/banner/er-diagram.png)
+* **Booking:** [PNG](./docs/erd/modules/booking/er-diagram.png)
+* **Car:** [PNG](./docs/erd/modules/car/er-diagram.png)
+* **Charges:** [PNG](./docs/erd/modules/charges/er-diagram.png)
+* **Chat:** [PNG](./docs/erd/modules/chat/er-diagram.png)
+* **FAQ:** [PNG](./docs/erd/modules/faq/er-diagram.png)
+* **Favorite Car:** [PNG](./docs/erd/modules/favoriteCar/er-diagram.png)
+* **FCM Token:** [PNG](./docs/erd/modules/fcmToken/er-diagram.png)
+* **Media:** [PNG](./docs/erd/modules/media/er-diagram.png)
+* **Message:** [PNG](./docs/erd/modules/message/er-diagram.png)
+* **Notification:** [PNG](./docs/erd/modules/notification/er-diagram.png)
+* **Payout:** [PNG](./docs/erd/modules/payout/er-diagram.png)
+* **Reset Token:** [PNG](./docs/erd/modules/resetToken/er-diagram.png)
+* **Review:** [PNG](./docs/erd/modules/review/er-diagram.png)
+* **Rule:** [PNG](./docs/erd/modules/rule/er-diagram.png)
+* **Support:** [PNG](./docs/erd/modules/support/er-diagram.png)
+* **Transaction:** [PNG](./docs/erd/modules/transaction/er-diagram.png)
+* **User:** [PNG](./docs/erd/modules/user/er-diagram.png)
+
+---
+
+
+
 ## Authentication & Authorization
 
 ### Authentication
@@ -319,41 +353,6 @@ npm run format
 - **Webhook Security**: Raw body parsing and signature validation on Stripe webhooks (`src/app/middlewares/verifyWebhook.ts`).
 
 ---
-
-
-
-## Entity Relationship Diagram (ERD)
-
-The project includes automatically generated Entity Relationship Diagrams (ERDs) mapping the Mongoose schemas and relationships across modules.
-
-#### System-Wide ER Diagram
-Below is the rendered project-wide database structure:
-
-![System-Wide ER Diagram](./docs/erd/modules/whole-er-diagram/er-diagram.png)
-
-#### Module-Specific Diagrams
-For a focused view of each module, check the following directories:
-* **Banner:** [PNG](./docs/erd/modules/banner/er-diagram.png)
-* **Booking:** [PNG](./docs/erd/modules/booking/er-diagram.png)
-* **Car:** [PNG](./docs/erd/modules/car/er-diagram.png)
-* **Charges:** [PNG](./docs/erd/modules/charges/er-diagram.png)
-* **Chat:** [PNG](./docs/erd/modules/chat/er-diagram.png)
-* **FAQ:** [PNG](./docs/erd/modules/faq/er-diagram.png)
-* **Favorite Car:** [PNG](./docs/erd/modules/favoriteCar/er-diagram.png)
-* **FCM Token:** [PNG](./docs/erd/modules/fcmToken/er-diagram.png)
-* **Media:** [PNG](./docs/erd/modules/media/er-diagram.png)
-* **Message:** [PNG](./docs/erd/modules/message/er-diagram.png)
-* **Notification:** [PNG](./docs/erd/modules/notification/er-diagram.png)
-* **Payout:** [PNG](./docs/erd/modules/payout/er-diagram.png)
-* **Reset Token:** [PNG](./docs/erd/modules/resetToken/er-diagram.png)
-* **Review:** [PNG](./docs/erd/modules/review/er-diagram.png)
-* **Rule:** [PNG](./docs/erd/modules/rule/er-diagram.png)
-* **Support:** [PNG](./docs/erd/modules/support/er-diagram.png)
-* **Transaction:** [PNG](./docs/erd/modules/transaction/er-diagram.png)
-* **User:** [PNG](./docs/erd/modules/user/er-diagram.png)
-
----
-
 
 ## License
 
