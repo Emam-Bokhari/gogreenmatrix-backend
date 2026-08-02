@@ -145,7 +145,7 @@ export const calculateExtendBookingAmount = async (
   from: Date,
   to: Date,
   car: any,
-  charges: any, // ✅ moved outside (IMPORTANT)
+  charges: any, // moved outside (IMPORTANT)
 ): Promise<any> => {
   if (!from || !to) {
     throw new Error("Invalid date provided");
@@ -164,7 +164,7 @@ export const calculateExtendBookingAmount = async (
     throw new Error("Extend time must be after current booking end");
   }
 
-  // ⛔ FIX: floating issue safe conversion
+  // FIX: floating issue safe conversion
   const totalHours = Math.round(diffMs / (1000 * 60 * 60));
 
   if (totalHours <= 0) {
@@ -175,7 +175,7 @@ export const calculateExtendBookingAmount = async (
     throw new Error("Invalid car daily price");
   }
 
-  // 💰 hourly calculation
+  // hourly calculation
   const hourlyRate = car.dailyPrice / 24;
   const baseExtendPrice = round(hourlyRate * totalHours);
 
@@ -191,14 +191,14 @@ export const calculateExtendBookingAmount = async (
   const hostPercent = normalize(charges.hostCommission);
   const adminPercent = normalize(charges.adminCommission);
 
-  // 💸 fees calculation
+  // fees calculation
   const platformFee = round(baseExtendPrice * platformPercent);
   const hostCommission = round(baseExtendPrice * hostPercent);
 
-  // 👉 consistent admin calculation (safe)
+  // consistent admin calculation (safe)
   const adminCommission = round(baseExtendPrice - platformFee - hostCommission);
 
-  // 💵 final amount
+  // final amount
   const totalAmount = round(baseExtendPrice + platformFee);
 
   return {

@@ -208,7 +208,7 @@ const getAllHostFromDB = async (query: any) => {
         pipeline: [
           {
             $match: {
-              $expr: { $eq: ["$assignedHosts", "$$hostId"] }, // ✅ fixed: assignedHosts
+              $expr: { $eq: ["$assignedHosts", "$$hostId"] }, // fixed: assignedHosts
             },
           },
         ],
@@ -294,7 +294,7 @@ const getHostByIdFromDB = async (id: string) => {
         pipeline: [
           {
             $match: {
-              $expr: { $eq: ["$$hostId", "$assignedHosts"] }, // ✅ assignedHosts
+              $expr: { $eq: ["$$hostId", "$assignedHosts"] }, // assignedHosts
             },
           },
           { $project: { assignedHosts: 0 } },

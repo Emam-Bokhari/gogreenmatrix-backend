@@ -17,7 +17,7 @@ export interface INotificationPayload {
 
 class NotificationHelper {
   /**
-   * 🟢 MAIN METHOD: SEND TO SINGLE USER
+   * MAIN METHOD: SEND TO SINGLE USER
    * Usage: notificationHelper.sendToUser(userId, payload);
    */
   async sendToUser(
@@ -28,7 +28,7 @@ class NotificationHelper {
   }
 
   /**
-   * 🔵 MAIN METHOD: SEND TO MULTIPLE USERS
+   * MAIN METHOD: SEND TO MULTIPLE USERS
    * Usage: notificationHelper.sendToBatch([id1, id2, id3], payload);
    */
   async sendToBatch(
@@ -79,16 +79,16 @@ class NotificationHelper {
 
       logger.info(
         colors.green(
-          `✅ Notification flow completed for ${validUserIds.length} users.`,
+          `Notification flow completed for ${validUserIds.length} users.`,
         ),
       );
     } catch (error) {
-      logger.error(colors.red("❌ NotificationHelper Error:"), error);
+      logger.error(colors.red("NotificationHelper Error:"), error);
     }
   }
 
   /**
-   * 🟠 SEND CHAT MESSAGE NOTIFICATION
+   * SEND CHAT MESSAGE NOTIFICATION
    */
   async sendChatMessage(chat: any, message: any) {
     try {
@@ -127,17 +127,17 @@ class NotificationHelper {
         },
       });
     } catch (error) {
-      logger.error(colors.red("❌ Error inside sendChatMessage:"), error);
+      logger.error(colors.red("Error inside sendChatMessage:"), error);
     }
   }
 
   /**
-   * 🔒 PRIVATE: Handle Firebase Logic & Token Cleanup
+   * PRIVATE: Handle Firebase Logic & Token Cleanup
    * Chunks tokens into batches of 500 (Firebase limit)
    */
   private async sendToFCM(tokens: string[], payload: INotificationPayload) {
     try {
-      // ✅ Fixed: Chunk tokens into batches of 500 (Firebase multicast limit)
+      // Fixed: Chunk tokens into batches of 500 (Firebase multicast limit)
       const BATCH_SIZE = 500;
       const chunks: string[][] = [];
       for (let i = 0; i < tokens.length; i += BATCH_SIZE) {
@@ -177,7 +177,7 @@ class NotificationHelper {
             await DeviceToken.deleteMany({ fcmToken: { $in: failedTokens } });
             logger.info(
               colors.yellow(
-                `🗑️ Cleaned up ${failedTokens.length} invalid tokens.`,
+                `Cleaned up ${failedTokens.length} invalid tokens.`,
               ),
             );
           }
@@ -189,7 +189,7 @@ class NotificationHelper {
   }
 
   /**
-   * 🔒 PRIVATE: Handle Database Saving
+   * PRIVATE: Handle Database Saving
    */
   private async saveToDatabase(userIds: any[], payload: INotificationPayload) {
     try {

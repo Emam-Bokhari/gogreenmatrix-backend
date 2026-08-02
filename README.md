@@ -14,8 +14,8 @@ The platform also includes role-based access control, automated background jobs,
 
 The backend APIs in this project were developed based on the approved UI/UX design.
 
-| Resource | Link |
-|----------|------|
+| Resource     | Link                                                                                                                    |
+| ------------ | ----------------------------------------------------------------------------------------------------------------------- |
 | Figma Design | [Click Here](https://www.figma.com/design/6j99QbPuFEghJtS83f01VL/Rimaiziza?node-id=3752-22446&p=f&t=P1ZnaQVaecaExbYm-0) |
 
 > The UI/UX design was provided by the project team and is referenced here to help understand the API flow and business requirements.
@@ -34,7 +34,6 @@ The backend APIs in this project were developed based on the approved UI/UX desi
 
 ---
 
-
 ## Features
 
 - **Authentication & OAuth**: Email/password authentication, Google & Facebook OAuth identity verification, OTP phone verification via Twilio/AfrikSMS, and JWT access/refresh token management.
@@ -52,24 +51,24 @@ The backend APIs in this project were developed based on the approved UI/UX desi
 
 ## Tech Stack
 
-| Category | Technology |
-| :--- | :--- |
-| **Runtime Environment** | Node.js |
-| **Language** | TypeScript |
-| **Framework** | Express.js |
-| **Database** | MongoDB |
-| **ODM** | Mongoose |
-| **Authentication** | JWT (`jsonwebtoken`), Passport.js (Google & Facebook OAuth) |
-| **Validation** | Zod |
-| **Real-Time Communication** | Socket.IO |
-| **Payment Gateways** | Stripe (API & Webhooks), CinetPay |
-| **Storage & Image Processing**| Multer, Express Static (`/uploads`), Sharp |
-| **Push Notifications** | Firebase Admin SDK (FCM) |
-| **SMS Providers** | Twilio, AfrikSMS |
-| **Email Provider** | Nodemailer (SMTP / Gmail) |
-| **Logging System** | Winston, Winston Daily Rotate File, Morgan |
-| **Background Jobs** | Node Cron (`node-cron`) |
-| **Code Formatter** | Prettier |
+| Category                       | Technology                                                  |
+| :----------------------------- | :---------------------------------------------------------- |
+| **Runtime Environment**        | Node.js                                                     |
+| **Language**                   | TypeScript                                                  |
+| **Framework**                  | Express.js                                                  |
+| **Database**                   | MongoDB                                                     |
+| **ODM**                        | Mongoose                                                    |
+| **Authentication**             | JWT (`jsonwebtoken`), Passport.js (Google & Facebook OAuth) |
+| **Validation**                 | Zod                                                         |
+| **Real-Time Communication**    | Socket.IO                                                   |
+| **Payment Gateways**           | Stripe (API & Webhooks), CinetPay                           |
+| **Storage & Image Processing** | Multer, Express Static (`/uploads`), Sharp                  |
+| **Push Notifications**         | Firebase Admin SDK (FCM)                                    |
+| **SMS Providers**              | Twilio, AfrikSMS                                            |
+| **Email Provider**             | Nodemailer (SMTP / Gmail)                                   |
+| **Logging System**             | Winston, Winston Daily Rotate File, Morgan                  |
+| **Background Jobs**            | Node Cron (`node-cron`)                                     |
+| **Code Formatter**             | Prettier                                                    |
 
 ---
 
@@ -124,21 +123,25 @@ Remaiziza-STA-Backend/
 ### Step-by-Step Setup
 
 1. **Clone the Repository**:
+
    ```bash
    git clone <repository-url>
    cd Remaiziza-STA-Backend
    ```
 
 2. **Install Dependencies**:
+
    ```bash
    npm install
    ```
 
 3. **Configure Environment Variables**:
+
    ```bash
    cp .env.example .env
    ```
-   *Edit `.env` and fill in your database URIs, API keys, and secret keys.*
+
+   _Edit `.env` and fill in your database URIs, API keys, and secret keys._
 
 4. **Start MongoDB**:
    Ensure MongoDB service is running locally or verify your remote MongoDB Atlas connection string in `.env`.
@@ -152,61 +155,61 @@ Remaiziza-STA-Backend/
 
 ## Environment Variables
 
-| Variable | Required | Description |
-| :--- | :---: | :--- |
-| `IP` | Yes | Host IP address binding for the Express HTTP server |
-| `PORT` | Yes | Port number on which the HTTP server listens |
-| `NODE_ENV` | Yes | Application execution environment (`development` or `production`) |
-| `RESPONSE_MODE` | No | API response formatting behavior (`SOFT` or `STRICT`) |
-| `DATABASE_URL` | Yes | MongoDB connection URI string |
-| `BCRYPT_SALT_ROUNDS` | Yes | Salt rounds used for Bcrypt password hashing |
-| `JWT_SECRET` | Yes | Secret key used for signing JWT access tokens |
-| `jwtRefreshSecret` | Yes | Secret key used for signing JWT refresh tokens |
-| `JWT_EXPIRE_IN` | Yes | Expiration duration for access tokens (e.g., `30d`) |
-| `JWT_REFRESH_EXPIRES_IN` | Yes | Expiration duration for refresh tokens (e.g., `30d`) |
-| `AUTH_API_KEY` | No | UNKNOWN (Base64 key used for external auth proxy evaluation) |
-| `CLIENT_URL` | Yes | Base URL of the frontend web application |
-| `BASE_URL` | Yes | Base URL of the backend API server |
-| `CURRENCY` | Yes | Default transaction currency code (e.g., `MYR`) |
-| `REDIS_HOST` | No | Redis server hostname or connection URL |
-| `REDIS_PORT` | No | Redis server port number |
-| `REDIS_PASSWORD` | No | Redis authentication password |
-| `REDIS_DB` | No | Redis database index number |
-| `START_CRON` | Yes | Toggle flag to enable background cron workers (`true`/`false`) |
-| `STRIPE_SECRET_KEY` | Yes | Stripe secret API key for payment processing |
-| `STRIPE_WEBHOOK_SECRET` | Yes | Stripe webhook endpoint signing secret |
-| `CINATPAY_SITE_ID` | No | CinetPay merchant site identifier |
-| `CINATPAY_API_KEY` | No | CinetPay API key |
-| `CINATPAY_SECRET_KEY` | No | CinetPay webhook signing secret |
-| `FIREBASE_CLIENT_EMAIL` | No | Firebase Admin SDK service account email |
-| `FIREBASE_PROJECT_ID` | No | Firebase project ID for push notifications |
-| `FIREBASE_PRIVATE_KEY` | No | Firebase Admin SDK private key string |
-| `GOOGLE_CLIENT_ID` | No | Google OAuth 2.0 Client ID |
-| `GOOGLE_CLIENT_SECRET` | No | Google OAuth 2.0 Client Secret |
-| `TWILIO_ACCOUNT_SID` | No | Twilio account SID for SMS verification |
-| `TWILIO_AUTH_TOKEN` | No | Twilio authentication token |
-| `TWILIO_SERVICE_SID` | No | Twilio Verification service SID |
-| `EMAIL_HOST` | Yes | SMTP server host address |
-| `EMAIL_PORT` | Yes | SMTP server port number |
-| `EMAIL_USER` | Yes | SMTP authentication username |
-| `EMAIL_PASS` | Yes | SMTP authentication password |
-| `EMAIL_FROM` | Yes | Default sender email address |
-| `SUPPORT_RECEIVER_EMAIL` | Yes | Destination email address for support ticket alerts |
-| `ADMIN_EMAIL` | Yes | Initial Super Admin user email address for DB seeding |
-| `ADMIN_PASSWORD` | Yes | Initial Super Admin user password for DB seeding |
+| Variable                 | Required | Description                                                       |
+| :----------------------- | :------: | :---------------------------------------------------------------- |
+| `IP`                     |   Yes    | Host IP address binding for the Express HTTP server               |
+| `PORT`                   |   Yes    | Port number on which the HTTP server listens                      |
+| `NODE_ENV`               |   Yes    | Application execution environment (`development` or `production`) |
+| `RESPONSE_MODE`          |    No    | API response formatting behavior (`SOFT` or `STRICT`)             |
+| `DATABASE_URL`           |   Yes    | MongoDB connection URI string                                     |
+| `BCRYPT_SALT_ROUNDS`     |   Yes    | Salt rounds used for Bcrypt password hashing                      |
+| `JWT_SECRET`             |   Yes    | Secret key used for signing JWT access tokens                     |
+| `jwtRefreshSecret`       |   Yes    | Secret key used for signing JWT refresh tokens                    |
+| `JWT_EXPIRE_IN`          |   Yes    | Expiration duration for access tokens (e.g., `30d`)               |
+| `JWT_REFRESH_EXPIRES_IN` |   Yes    | Expiration duration for refresh tokens (e.g., `30d`)              |
+| `AUTH_API_KEY`           |    No    | UNKNOWN (Base64 key used for external auth proxy evaluation)      |
+| `CLIENT_URL`             |   Yes    | Base URL of the frontend web application                          |
+| `BASE_URL`               |   Yes    | Base URL of the backend API server                                |
+| `CURRENCY`               |   Yes    | Default transaction currency code (e.g., `MYR`)                   |
+| `REDIS_HOST`             |    No    | Redis server hostname or connection URL                           |
+| `REDIS_PORT`             |    No    | Redis server port number                                          |
+| `REDIS_PASSWORD`         |    No    | Redis authentication password                                     |
+| `REDIS_DB`               |    No    | Redis database index number                                       |
+| `START_CRON`             |   Yes    | Toggle flag to enable background cron workers (`true`/`false`)    |
+| `STRIPE_SECRET_KEY`      |   Yes    | Stripe secret API key for payment processing                      |
+| `STRIPE_WEBHOOK_SECRET`  |   Yes    | Stripe webhook endpoint signing secret                            |
+| `CINATPAY_SITE_ID`       |    No    | CinetPay merchant site identifier                                 |
+| `CINATPAY_API_KEY`       |    No    | CinetPay API key                                                  |
+| `CINATPAY_SECRET_KEY`    |    No    | CinetPay webhook signing secret                                   |
+| `FIREBASE_CLIENT_EMAIL`  |    No    | Firebase Admin SDK service account email                          |
+| `FIREBASE_PROJECT_ID`    |    No    | Firebase project ID for push notifications                        |
+| `FIREBASE_PRIVATE_KEY`   |    No    | Firebase Admin SDK private key string                             |
+| `GOOGLE_CLIENT_ID`       |    No    | Google OAuth 2.0 Client ID                                        |
+| `GOOGLE_CLIENT_SECRET`   |    No    | Google OAuth 2.0 Client Secret                                    |
+| `TWILIO_ACCOUNT_SID`     |    No    | Twilio account SID for SMS verification                           |
+| `TWILIO_AUTH_TOKEN`      |    No    | Twilio authentication token                                       |
+| `TWILIO_SERVICE_SID`     |    No    | Twilio Verification service SID                                   |
+| `EMAIL_HOST`             |   Yes    | SMTP server host address                                          |
+| `EMAIL_PORT`             |   Yes    | SMTP server port number                                           |
+| `EMAIL_USER`             |   Yes    | SMTP authentication username                                      |
+| `EMAIL_PASS`             |   Yes    | SMTP authentication password                                      |
+| `EMAIL_FROM`             |   Yes    | Default sender email address                                      |
+| `SUPPORT_RECEIVER_EMAIL` |   Yes    | Destination email address for support ticket alerts               |
+| `ADMIN_EMAIL`            |   Yes    | Initial Super Admin user email address for DB seeding             |
+| `ADMIN_PASSWORD`         |   Yes    | Initial Super Admin user password for DB seeding                  |
 
 ---
 
 ## Available Scripts
 
-| Script | Command | Description |
-| :--- | :--- | :--- |
-| `npm run dev` | `ts-node-dev --respawn --transpile-only src/server.ts` | Runs the server in development mode with hot reloading. |
-| `npm run start` | `node dist/server.js` | Runs the compiled JavaScript application in production. |
-| `npm run build` | `tsc` | Compiles TypeScript source files into JavaScript inside `dist/`. |
-| `npm run format` | `prettier . --write` | Formats source files using Prettier according to
----
+| Script           | Command                                                | Description                                                      |
+| :--------------- | :----------------------------------------------------- | :--------------------------------------------------------------- |
+| `npm run dev`    | `ts-node-dev --respawn --transpile-only src/server.ts` | Runs the server in development mode with hot reloading.          |
+| `npm run start`  | `node dist/server.js`                                  | Runs the compiled JavaScript application in production.          |
+| `npm run build`  | `tsc`                                                  | Compiles TypeScript source files into JavaScript inside `dist/`. |
+| `npm run format` | `prettier . --write`                                   | Formats source files using Prettier according to                 |
 
+---
 
 ## Database
 
@@ -223,34 +226,35 @@ Remaiziza-STA-Backend/
 The project includes automatically generated Entity Relationship Diagrams (ERDs) mapping the Mongoose schemas and relationships across modules.
 
 #### System-Wide ER Diagram
+
 Below is the rendered project-wide database structure:
 
 ![System-Wide ER Diagram](./docs/erd/modules/whole-er-diagram/er-diagram.png)
 
 #### Module-Specific Diagrams
+
 For a focused view of each module, check the following directories:
-* **Banner:** [PNG](./docs/erd/modules/banner/er-diagram.png)
-* **Booking:** [PNG](./docs/erd/modules/booking/er-diagram.png)
-* **Car:** [PNG](./docs/erd/modules/car/er-diagram.png)
-* **Charges:** [PNG](./docs/erd/modules/charges/er-diagram.png)
-* **Chat:** [PNG](./docs/erd/modules/chat/er-diagram.png)
-* **FAQ:** [PNG](./docs/erd/modules/faq/er-diagram.png)
-* **Favorite Car:** [PNG](./docs/erd/modules/favoriteCar/er-diagram.png)
-* **FCM Token:** [PNG](./docs/erd/modules/fcmToken/er-diagram.png)
-* **Media:** [PNG](./docs/erd/modules/media/er-diagram.png)
-* **Message:** [PNG](./docs/erd/modules/message/er-diagram.png)
-* **Notification:** [PNG](./docs/erd/modules/notification/er-diagram.png)
-* **Payout:** [PNG](./docs/erd/modules/payout/er-diagram.png)
-* **Reset Token:** [PNG](./docs/erd/modules/resetToken/er-diagram.png)
-* **Review:** [PNG](./docs/erd/modules/review/er-diagram.png)
-* **Rule:** [PNG](./docs/erd/modules/rule/er-diagram.png)
-* **Support:** [PNG](./docs/erd/modules/support/er-diagram.png)
-* **Transaction:** [PNG](./docs/erd/modules/transaction/er-diagram.png)
-* **User:** [PNG](./docs/erd/modules/user/er-diagram.png)
+
+- **Banner:** [PNG](./docs/erd/modules/banner/er-diagram.png)
+- **Booking:** [PNG](./docs/erd/modules/booking/er-diagram.png)
+- **Car:** [PNG](./docs/erd/modules/car/er-diagram.png)
+- **Charges:** [PNG](./docs/erd/modules/charges/er-diagram.png)
+- **Chat:** [PNG](./docs/erd/modules/chat/er-diagram.png)
+- **FAQ:** [PNG](./docs/erd/modules/faq/er-diagram.png)
+- **Favorite Car:** [PNG](./docs/erd/modules/favoriteCar/er-diagram.png)
+- **FCM Token:** [PNG](./docs/erd/modules/fcmToken/er-diagram.png)
+- **Media:** [PNG](./docs/erd/modules/media/er-diagram.png)
+- **Message:** [PNG](./docs/erd/modules/message/er-diagram.png)
+- **Notification:** [PNG](./docs/erd/modules/notification/er-diagram.png)
+- **Payout:** [PNG](./docs/erd/modules/payout/er-diagram.png)
+- **Reset Token:** [PNG](./docs/erd/modules/resetToken/er-diagram.png)
+- **Review:** [PNG](./docs/erd/modules/review/er-diagram.png)
+- **Rule:** [PNG](./docs/erd/modules/rule/er-diagram.png)
+- **Support:** [PNG](./docs/erd/modules/support/er-diagram.png)
+- **Transaction:** [PNG](./docs/erd/modules/transaction/er-diagram.png)
+- **User:** [PNG](./docs/erd/modules/user/er-diagram.png)
 
 ---
-
-
 
 ## Authentication & Authorization
 
@@ -264,6 +268,7 @@ For a focused view of each module, check the following directories:
 ### Authorization (RBAC)
 
 Access control is managed through user roles defined in `USER_ROLES` (`src/enums/user.ts`):
+
 - `SUPER_ADMIN`: Full administrative authorization over platform entities, system roles, and financial transactions.
 - `ADMIN`: System-wide monitoring, user/host approvals, content moderation, and support processing.
 - `HOST`: Vehicle creation, rental pricing management, booking request approvals, and payout requests.

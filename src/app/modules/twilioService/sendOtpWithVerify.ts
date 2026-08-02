@@ -39,7 +39,7 @@ class TwilioService {
     };
   }
 
-  // ✅ Format phone number to E.164 format
+  // Format phone number to E.164 format
   private formatPhoneNumber(phoneNumber: string, countryCode?: string): string {
     let phone = phoneNumber.trim().replace(/\s+/g, ""); // Remove spaces
 

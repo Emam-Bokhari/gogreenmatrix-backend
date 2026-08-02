@@ -9,7 +9,7 @@ class QueryBuilder<T> {
     this.query = query;
   }
 
-  // 🔍 Search (String + ObjectId support)
+  // Search (String + ObjectId support)
   search(searchableFields: string[]) {
     const searchTerm = this.query.searchTerm as string;
     if (!searchTerm) return this;
@@ -64,7 +64,7 @@ class QueryBuilder<T> {
     return this;
   }
 
-  // 🎯 Filter (Boolean, Date, exact match)
+  // Filter (Boolean, Date, exact match)
   filter() {
     const queryObj = { ...this.query };
     const excludeFields = ["searchTerm", "sort", "limit", "page", "fields"];
@@ -114,7 +114,7 @@ class QueryBuilder<T> {
     return this;
   }
 
-  // 📄 Pagination
+  // Pagination
   paginate() {
     const page = Number(this.query.page) || 1;
     const limit = Number(this.query.limit) || 10;
@@ -123,7 +123,7 @@ class QueryBuilder<T> {
     return this;
   }
 
-  // 📌 Field Selection
+  // Field Selection
   fields() {
     const fields =
       (this.query.fields as string)?.split(",").join(" ") || "-__v";
@@ -131,7 +131,7 @@ class QueryBuilder<T> {
     return this;
   }
 
-  // 📊 Meta Count
+  // Meta Count
   async countTotal() {
     const filter = this.modelQuery.getFilter();
     const total = await this.modelQuery.model.countDocuments(filter);

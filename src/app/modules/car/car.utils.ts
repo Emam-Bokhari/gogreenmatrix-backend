@@ -494,10 +494,6 @@ export const checkIfUserHasPaid = async (
 
   if (!paidBooking) return false;
 
-  // Self bookings don't have a transaction but are considered "paid" (confirmed by host)
-  // Uncomment below if self bookings should also reveal host contact:
-  // if ((paidBooking as any).isSelfBooking) return true;
-
   const transaction = paidBooking.transactionId as any;
   if (!transaction) return false;
 

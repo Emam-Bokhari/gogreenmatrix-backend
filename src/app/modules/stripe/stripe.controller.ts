@@ -12,8 +12,6 @@ const createStripeAccount = catchAsync(async (req, res) => {
     stripeConnectedAccountId: stripeAccount.id,
   });
 
-  // const returnUrl = "https://yourapp.com/stripe/onboarding/success";
-  // const refreshUrl = "https://yourapp.com/stripe/onboarding/refresh";
   const returnUrl = "http://10.10.7.41:5005";
   const refreshUrl = "http://10.10.7.41:5005";
   const onboardingLink = await stripeService.createAccountLink(
